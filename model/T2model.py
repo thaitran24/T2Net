@@ -56,8 +56,8 @@ class T2NetModel(BaseModel):
         self.img_target = input['img_target']
     
         if len(self.gpu_ids) > 0:
-            self.img_source = self.img_source.cuda(self.gpu_ids[0], async=True)
-            self.img_target = self.img_target.cuda(self.gpu_ids[0], async=True)
+            self.img_source = self.img_source.cuda(self.gpu_ids[0])
+            self.img_target = self.img_target.cuda(self.gpu_ids[0])
             
     def forward(self):
         self.img_s = Variable(self.img_source)
